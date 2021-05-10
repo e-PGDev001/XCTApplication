@@ -1,4 +1,5 @@
 ﻿using Foundation;
+using Sharpnado.MaterialFrame.iOS;
 using UIKit;
 
 namespace XCTApplication.iOS
@@ -21,6 +22,7 @@ namespace XCTApplication.iOS
             Rg.Plugins.Popup.Popup.Init();
             global::Xamarin.Forms.Forms.Init();
             Syncfusion.XForms.iOS.ComboBox.SfComboBoxRenderer.Init();
+            iOSMaterialFrameRenderer.Init();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

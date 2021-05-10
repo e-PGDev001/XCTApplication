@@ -7,6 +7,7 @@
     xmlns:comboBox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
     xmlns:controls="clr-namespace:XCTApplication.Controls;assembly=XCTApplication"
     xmlns:generic="clr-namespace:System.Collections.Generic;assembly=netstandard"
+    xmlns:materialFrame="http://sharpnado.com"
     xmlns:viewModels="clr-namespace:XCTApplication.ViewModels;assembly=XCTApplication"
     xmlns:xamForms="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
     Title="New Diary"
@@ -46,7 +47,7 @@
                 </Grid>
                 <StackLayout Margin="10" Spacing="20">
 
-                    <Frame HasShadow="True">
+                    <materialFrame:MaterialFrame HasShadow="True">
                         <StackLayout Spacing="20">
                             <Label FontAttributes="Bold" Text="Add Photos to site diary" />
                             <BoxView BackgroundColor="WhiteSmoke" HeightRequest="1" />
@@ -77,17 +78,20 @@
                                     Color="Chartreuse" />
                             </Grid>
                         </StackLayout>
-                    </Frame>
+                    </materialFrame:MaterialFrame>
 
-                    <Frame HasShadow="True">
+                    <materialFrame:MaterialFrame HasShadow="True">
                         <StackLayout Spacing="20">
                             <Label FontAttributes="Bold" Text="Comments" />
                             <BoxView BackgroundColor="WhiteSmoke" HeightRequest="1" />
-                            <Entry FontSize="13" Placeholder="Comments" />
+                            <Entry
+                                x:Name="EntryComment"
+                                FontSize="13"
+                                Placeholder="Comments" />
                         </StackLayout>
-                    </Frame>
+                    </materialFrame:MaterialFrame>
 
-                    <Frame HasShadow="True">
+                    <materialFrame:MaterialFrame HasShadow="True">
                         <StackLayout Spacing="20">
                             <Label FontAttributes="Bold" Text="Details" />
                             <BoxView BackgroundColor="WhiteSmoke" HeightRequest="1" />
@@ -98,6 +102,7 @@
                                 </DatePicker.Behaviors>
                             </DatePicker>
                             <comboBox:SfComboBox
+                                x:Name="ComboBoxSelectedArea"
                                 DropDownBorderColor="WhiteSmoke"
                                 HeightRequest="40"
                                 SelectedItem="{Binding SelectedArea}"
@@ -115,6 +120,7 @@
                                 </comboBox:SfComboBox.ComboBoxSource>
                             </comboBox:SfComboBox>
                             <comboBox:SfComboBox
+                                x:Name="ComboBoxTaskCategory"
                                 DropDownBorderColor="WhiteSmoke"
                                 HeightRequest="40"
                                 SelectedItem="{Binding TaskCategory}"
@@ -133,9 +139,9 @@
                             </comboBox:SfComboBox>
                             <Entry FontSize="13" Placeholder="Tags" />
                         </StackLayout>
-                    </Frame>
+                    </materialFrame:MaterialFrame>
 
-                    <Frame HasShadow="True">
+                    <materialFrame:MaterialFrame HasShadow="True">
                         <StackLayout Spacing="20">
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -157,6 +163,7 @@
                             <BoxView BackgroundColor="WhiteSmoke" HeightRequest="1" />
 
                             <comboBox:SfComboBox
+                                x:Name="ComboBoxSelectedEvent"
                                 DropDownBorderColor="Chartreuse"
                                 HeightRequest="40"
                                 SelectedItem="{Binding SelectedEvent}"
@@ -174,17 +181,19 @@
                                 </comboBox:SfComboBox.ComboBoxSource>
                             </comboBox:SfComboBox>
                         </StackLayout>
-                    </Frame>
+                    </materialFrame:MaterialFrame>
                 </StackLayout>
             </StackLayout>
         </ScrollView>
 
         <Button
+            x:Name="ButtonPostNewDiary"
             Grid.Row="1"
             Margin="20,0,20,10"
             BackgroundColor="Chartreuse"
             Command="{Binding CreateNewDiaryCommand}"
             HeightRequest="40"
+            IsEnabled="False"
             Text="Create New Diary"
             TextColor="White"
             VerticalOptions="End" />

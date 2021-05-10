@@ -24,7 +24,7 @@
         <Label
             FontSize="12"
             HorizontalTextAlignment="Center"
-            Text="Ảnh bìa"
+            Text="Cover Image"
             TextColor="White" />
     </Grid>
 </Grid>

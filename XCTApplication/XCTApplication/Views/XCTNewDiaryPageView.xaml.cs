@@ -38,7 +38,7 @@ namespace XCTApplication.Views
                 .ObserveOn(RxApp.MainThreadScheduler)
                 .Subscribe(async args =>
                 {
-                    if(this.ViewModel == null) return;
+                    if (this.ViewModel == null) return;
                     var cameraPer = await PermissionsHelper.NewCheckPermission(Permission.Camera);
                     await Task.Delay(TimeSpan.FromMilliseconds(200));
                     var photoPer = await PermissionsHelper.NewCheckPermission(Permission.Photos);
@@ -124,6 +124,20 @@ namespace XCTApplication.Views
                         await cropper.Show(this);
                     }
                 }).DisposeWith(_compositeDisposable);
+
+            this.WhenAnyValue(view => view.EntryComment.Text,
+                    view => view.ComboBoxSelectedArea.SelectedItem,
+                    view => view.ComboBoxSelectedEvent.SelectedItem,
+                    view => view.ComboBoxTaskCategory.SelectedItem)
+                .Subscribe(tuble =>
+                {
+                    // only enable create new diary button if fill up data
+                    this.ButtonPostNewDiary.IsEnabled = !string.IsNullOrEmpty(tuble.Item1)
+                                                        && tuble.Item2 != null
+                                                        && tuble.Item3 != null
+                                                        && tuble.Item4 != null;
+                })
+                .DisposeWith(_compositeDisposable);
         }
 
         protected override void OnDisappearing()
