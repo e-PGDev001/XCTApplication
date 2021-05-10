@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using ReactiveUI;
@@ -73,8 +76,29 @@ namespace XCTApplication.ViewModels
 
         private async Task CreateNewDiaryTask()
         {
-            var url = "https://reqres.in/";
+            var client = new HttpClient();
+            var uri = new Uri("https://reqres.in/");
 
+            var postData = new PostItemData
+            {
+                selected_area = SelectedArea,
+                selected_catalog = TaskCategory,
+                selected_date = SelectedDate,
+                selected_event = SelectedEvent,
+                selected_images = new List<string>()
+            };
+
+            foreach (var mediaFile in MediaFiles)
+            {
+                if (string.IsNullOrEmpty(mediaFile.Path)) return;
+                var bytes = System.IO.File.ReadAllBytes(mediaFile.Path);
+
+                postData.selected_images.Add(Convert.ToBase64String(bytes));
+            }
+
+            var json = JsonSerializer.Serialize(postData);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            await client.PostAsync(uri, content);
         }
 
         #endregion
@@ -93,5 +117,18 @@ namespace XCTApplication.ViewModels
         }
 
         #endregion
+    }
+
+    public class PostItemData
+    {
+        public string selected_date { get; set; }
+
+        public string selected_catalog { get; set; }
+
+        public string selected_area { get; set; }
+
+        public string selected_event { get; set; }
+
+        public List<string> selected_images { get; set; }
     }
 }
