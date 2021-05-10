@@ -103,6 +103,7 @@
                             </DatePicker>
                             <comboBox:SfComboBox
                                 x:Name="ComboBoxSelectedArea"
+                                BackgroundColor="Transparent"
                                 DropDownBorderColor="WhiteSmoke"
                                 HeightRequest="40"
                                 SelectedItem="{Binding SelectedArea}"
@@ -121,6 +122,7 @@
                             </comboBox:SfComboBox>
                             <comboBox:SfComboBox
                                 x:Name="ComboBoxTaskCategory"
+                                BackgroundColor="Transparent"
                                 DropDownBorderColor="WhiteSmoke"
                                 HeightRequest="40"
                                 SelectedItem="{Binding TaskCategory}"
@@ -164,7 +166,8 @@
 
                             <comboBox:SfComboBox
                                 x:Name="ComboBoxSelectedEvent"
-                                DropDownBorderColor="Chartreuse"
+                                BackgroundColor="Transparent"
+                                DropDownBorderColor="WhiteSmoke"
                                 HeightRequest="40"
                                 SelectedItem="{Binding SelectedEvent}"
                                 ShowClearButton="False"
