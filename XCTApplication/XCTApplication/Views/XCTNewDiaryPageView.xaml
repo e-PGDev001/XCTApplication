@@ -13,7 +13,7 @@
     Title="New Diary"
     x:TypeArguments="viewModels:XCTNewDiaryPageViewModel">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Command="{Binding PopModalCommand}" Text="Close" />
+        <ToolbarItem Command="{Binding PopModalCommand}" IconImageSource="baseline_close_white_24.png" />
     </ContentPage.ToolbarItems>
     <ContentPage.BindingContext>
         <viewModels:XCTNewDiaryPageViewModel />
@@ -57,6 +57,7 @@
                                 Spacing="10" />
                             <Button
                                 x:Name="ButtonAddPhoto"
+                                AutomationId="ButtonAddPhotoAId"
                                 BackgroundColor="Chartreuse"
                                 HeightRequest="40"
                                 Text="Add Photo"
@@ -122,6 +123,7 @@
                             </comboBox:SfComboBox>
                             <comboBox:SfComboBox
                                 x:Name="ComboBoxTaskCategory"
+                                AutomationId="ComboBoxTaskCategoryAId"
                                 BackgroundColor="Transparent"
                                 DropDownBorderColor="WhiteSmoke"
                                 HeightRequest="40"
@@ -193,6 +195,7 @@
             x:Name="ButtonPostNewDiary"
             Grid.Row="1"
             Margin="20,0,20,10"
+            AutomationId="ButtonPostNewDiaryAId"
             BackgroundColor="Chartreuse"
             Command="{Binding CreateNewDiaryCommand}"
             HeightRequest="40"

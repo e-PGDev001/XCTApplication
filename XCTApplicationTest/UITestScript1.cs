@@ -36,10 +36,11 @@ namespace XCTApplicationTest
 
             // go back at the first time because syncfusion license dialog, we need press back button to close it
             GoBack();
+            ShouldSee("Add Photo");
 
-            // 
+            /*// 
             Tap("ButtonAddPhotoAId");
-            ShouldSee("Pick image from camera");
+            ShouldSee("Pick image from camera");*/
         }
     }
 }
