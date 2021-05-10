@@ -10,11 +10,34 @@
         <viewModels:XCTMainPageViewModel />
     </ContentPage.BindingContext>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackLayout
+            Margin="20,0"
+            Spacing="20"
+            VerticalOptions="Center">
+            <Entry
+                x:Name="EntryUser"
+                AutomationId="EntryUserAId"
+                FontSize="15"
+                Placeholder="User Name" />
+            <Entry
+                x:Name="EntryPassword"
+                AutomationId="EntryPasswordAId"
+                FontSize="15"
+                Placeholder="Password" />
+        </StackLayout>
         <Button
+            x:Name="ButtonLogin"
+            Grid.Row="1"
             Margin="20"
+            AutomationId="ButtonLoginAId"
             BackgroundColor="Chartreuse"
             Command="{Binding CreateNewDiaryCommand}"
             HeightRequest="40"
+            IsEnabled="False"
             Text="Create New Diary"
             TextColor="White"
             VerticalOptions="End" />
