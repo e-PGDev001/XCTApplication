@@ -89,6 +89,7 @@
     <Compile Include="ControlRenderer\CustomPickerRenderer.cs" />
     <Compile Include="DPServices\MediaServiceImplementation.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="MainApplication.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
