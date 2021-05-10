@@ -15,7 +15,9 @@ namespace XCTApplication.Droid
     [Activity(Label = "Diary App", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true,
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode |
                                ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity, BSImagePicker.IOnMultiImageSelectedListener, BSImagePicker.IOnSingleImageSelectedListener
+    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity, 
+        BSImagePicker.IOnMultiImageSelectedListener, BSImagePicker.IOnSingleImageSelectedListener,
+        BSImagePicker.IImageLoaderDelegate
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {

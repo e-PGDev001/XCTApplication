@@ -25,18 +25,18 @@ namespace XCTApplication.Droid.DPServices
         public async Task OpenGallery()
         {
             await Task.Delay(TimeSpan.FromMilliseconds(100));
-            var multiSelectionPicker = new BSImagePicker.Builder("com.companyname.xctapplication.fileprovider")
+            var multiSelectionPicker = new BSImagePicker.Builder("com.xamconsultant.xctapplication.fileprovider")
                 .IsMultiSelect() //Set this if you want to use multi selection mode.
                 .SetMinimumMultiSelectCount(1) //Default: 1.
                 .SetMaximumMultiSelectCount(24) //Default: Integer.MAX_VALUE (i.e. User can select as many images as he/she wants)
-                /*//Default: #FFFFFF. You can also set it to a translucent color.
-                //.SetMultiSelectBarBgColor(Resource.Color.primary)
+                                                //Default: #FFFFFF. You can also set it to a translucent color.
+                                                //.SetMultiSelectBarBgColor(Resource.Color.primary)
                 .SetMultiSelectTextColor(Resource.Color
-                    .primary) //Default: #212121(Dark grey). This is the message in the multi-select bottom bar.
+                    .colorPrimary) //Default: #212121(Dark grey). This is the message in the multi-select bottom bar.
                 .SetMultiSelectDoneTextColor(Resource.Color
-                    .accent) //Default: #388e3c(Green). This is the color of the "Done" TextView.
+                    .colorAccent) //Default: #388e3c(Green). This is the color of the "Done" TextView.
                 .SetOverSelectTextColor(Resource.Color
-                    .error_color_material) //Default: #b71c1c. This is the color of the message shown when user tries to select more than maximum select count.*/
+                    .design_dark_default_color_on_error) //Default: #b71c1c. This is the color of the message shown when user tries to select more than maximum select count.
                 .DisableOverSelectionMessage() //You can also decide not to show this over select message              
                 .SetSpanCount(3) //Default: 3. This is the number of columns
                 .SetGridSpacing(Asksira.BSImagePickerLib.Utils.Dp2Px(2)) //Default: 2dp. Remember to pass in a value in pixel.
@@ -49,7 +49,7 @@ namespace XCTApplication.Droid.DPServices
         public async Task OpenCameraAndGallery()
         {
             await Task.Delay(TimeSpan.FromMilliseconds(100));
-            var singleSelectionPicker = new BSImagePicker.Builder("com.companyname.xctapplication.fileprovider")
+            var singleSelectionPicker = new BSImagePicker.Builder("com.xamconsultant.xctapplication.fileprovider")
             .SetMaximumDisplayingImages(24) //Default: Integer.MAX_VALUE. Don't worry about performance :)
                 .SetSpanCount(3) //Default: 3. This is the number of columns
                 .SetGridSpacing(Asksira.BSImagePickerLib.Utils.Dp2Px(2)) //Default: 2dp. Remember to pass in a value in pixel.

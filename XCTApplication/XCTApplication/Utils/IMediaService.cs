@@ -4,6 +4,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Plugin.Media;
 using Plugin.Permissions.Abstractions;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace XCTApplication.Utils
@@ -48,7 +49,7 @@ namespace XCTApplication.Utils
             await Task.Delay(TimeSpan.FromMilliseconds(200));
             var storagePer = await PermissionsHelper.NewCheckPermission(Permission.Storage);
             await Task.Delay(TimeSpan.FromMilliseconds(200));
-            if(!cameraPer && !photoPer && !storagePer) return;
+            if (!cameraPer && !photoPer && !storagePer) return;
 
             await CrossMedia.Current.Initialize();
             var srv = DependencyService.Get<IMediaService>();
@@ -67,7 +68,7 @@ namespace XCTApplication.Utils
 
                 // small delay
                 await Task.Delay(TimeSpan.FromMilliseconds(100));
-                await srv.OpenCameraAndGallery();
+                await MainThread.InvokeOnMainThreadAsync(async () => { await srv.OpenCameraAndGallery(); });
             }
             else
             {
@@ -80,7 +81,7 @@ namespace XCTApplication.Utils
 
                 // small delay
                 await Task.Delay(TimeSpan.FromMilliseconds(100));
-                await srv.OpenGallery();
+                await MainThread.InvokeOnMainThreadAsync(async () => { await srv.OpenGallery(); });
             }
         }
 
