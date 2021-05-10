@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using ReactiveUI;
+using Xamarin.Forms;
 using XCTApplication.Utils;
 
 namespace XCTApplication.ViewModels
@@ -12,6 +14,7 @@ namespace XCTApplication.ViewModels
         {
             CreateNewDiaryCommand = ReactiveCommand.CreateFromTask(CreateNewDiaryTask);
             MediaFiles = new List<MediaFile>();
+            DateSelectedCommand = ReactiveCommand.CreateFromTask<DateChangedEventArgs>(DateSelectedTask);
         }
 
         #region Properties
@@ -51,6 +54,15 @@ namespace XCTApplication.ViewModels
         }
 
 
+        private string _selectedDate;
+
+        public string SelectedDate
+        {
+            get => _selectedDate;
+            set => this.RaiseAndSetIfChanged(ref _selectedDate, value);
+        }
+
+
         #endregion
 
         public List<MediaFile> MediaFiles { get; set; }
@@ -63,6 +75,21 @@ namespace XCTApplication.ViewModels
         {
             var url = "https://reqres.in/";
 
+        }
+
+        #endregion
+
+
+        #region DateSelectedCommand
+
+        public ICommand DateSelectedCommand { get; }
+
+        private async Task DateSelectedTask(DateChangedEventArgs args)
+        {
+            if(args == null) return;
+            await Task.Delay(TimeSpan.FromMilliseconds(100));
+            var newDate = args.NewDate;
+            SelectedDate = newDate.ToString("MM/dd/yyyy");
         }
 
         #endregion
