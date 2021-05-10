@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Grid
+    x:Class="XCTApplication.Controls.PostImageDetailsViewCell"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Image
+        x:Name="ImageDes"
+        HeightRequest="80"
+        WidthRequest="80" />
+
+    <Image
+        BackgroundColor="Chartreuse"
+        HeightRequest="20"
+        HorizontalOptions="End"
+        Source="baseline_close_black_24.png"
+        VerticalOptions="Start"
+        WidthRequest="20" />
+
+    <Grid
+        x:Name="GridLandingImage"
+        IsVisible="False"
+        VerticalOptions="End">
+        <Grid BackgroundColor="Black" Opacity="0.5" />
+        <Label
+            FontSize="12"
+            HorizontalTextAlignment="Center"
+            Text="Ảnh bìa"
+            TextColor="White" />
+    </Grid>
+</Grid>

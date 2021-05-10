@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xamForms:ReactiveContentPage
+    x:Class="XCTApplication.Views.XCTNewDiaryPageView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:comboBox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+    xmlns:controls="clr-namespace:XCTApplication.Controls;assembly=XCTApplication"
+    xmlns:generic="clr-namespace:System.Collections.Generic;assembly=netstandard"
+    xmlns:viewModels="clr-namespace:XCTApplication.ViewModels;assembly=XCTApplication"
+    xmlns:xamForms="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
+    Title="New Diary"
+    x:TypeArguments="viewModels:XCTNewDiaryPageViewModel">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding PopModalCommand}" Text="Close" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.BindingContext>
+        <viewModels:XCTNewDiaryPageViewModel />
+    </ContentPage.BindingContext>
+    <Grid BackgroundColor="WhiteSmoke">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ScrollView>
+            <StackLayout>
+                <Grid Padding="20,15" BackgroundColor="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        Text="Add to site diary"
+                        VerticalOptions="Center" />
+
+                    <Button
+                        Grid.Column="1"
+                        CornerRadius="20"
+                        HeightRequest="40"
+                        Text="?"
+                        WidthRequest="40" />
+                </Grid>
+                <StackLayout Margin="10" Spacing="20">
+
+                    <Frame HasShadow="True">
+                        <StackLayout Spacing="20">
+                            <Label FontAttributes="Bold" Text="Add Photos to site diary" />
+                            <BoxView BackgroundColor="WhiteSmoke" HeightRequest="1" />
+                            <controls:WrapLayout
+                                x:Name="LayoutImages"
+                                Margin="10"
+                                Spacing="10" />
+                            <Button
+                                x:Name="ButtonAddPhoto"
+                                BackgroundColor="Chartreuse"
+                                HeightRequest="40"
+                                Text="Add Photo"
+                                TextColor="White"
+                                TextTransform="None" />
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="Include in photo gallery" VerticalOptions="Center" />
+                                <CheckBox
+                                    x:Name="CheckBox1"
+                                    Grid.Column="1"
+                                    Margin="0,0,-6,0"
+                                    IsChecked="True"
+                                    Color="Chartreuse" />
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame HasShadow="True">
+                        <StackLayout Spacing="20">
+                            <Label FontAttributes="Bold" Text="Comments" />
+                            <BoxView BackgroundColor="WhiteSmoke" HeightRequest="1" />
+                            <Entry FontSize="13" Placeholder="Comments" />
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame HasShadow="True">
+                        <StackLayout Spacing="20">
+                            <Label FontAttributes="Bold" Text="Details" />
+                            <BoxView BackgroundColor="WhiteSmoke" HeightRequest="1" />
+
+                            <DatePicker FontSize="13" />
+                            <comboBox:SfComboBox
+                                DropDownBorderColor="WhiteSmoke"
+                                HeightRequest="40"
+                                ShowClearButton="False"
+                                TextSize="13"
+                                Watermark="Select Area">
+                                <comboBox:SfComboBox.ComboBoxSource>
+                                    <generic:List x:TypeArguments="x:String">
+                                        <x:String>Area 1</x:String>
+                                        <x:String>Area 2</x:String>
+                                        <x:String>Area 3</x:String>
+                                        <x:String>Area 4</x:String>
+                                        <x:String>Area 5</x:String>
+                                    </generic:List>
+                                </comboBox:SfComboBox.ComboBoxSource>
+                            </comboBox:SfComboBox>
+                            <comboBox:SfComboBox
+                                DropDownBorderColor="WhiteSmoke"
+                                HeightRequest="40"
+                                ShowClearButton="False"
+                                TextSize="13"
+                                Watermark="Task Category">
+                                <comboBox:SfComboBox.ComboBoxSource>
+                                    <generic:List x:TypeArguments="x:String">
+                                        <x:String>Task Category 1</x:String>
+                                        <x:String>Task Category 2</x:String>
+                                        <x:String>Task Category 3</x:String>
+                                        <x:String>Task Category 4</x:String>
+                                        <x:String>Task Category 5</x:String>
+                                    </generic:List>
+                                </comboBox:SfComboBox.ComboBoxSource>
+                            </comboBox:SfComboBox>
+                            <Entry FontSize="13" Placeholder="Tags" />
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame HasShadow="True">
+                        <StackLayout Spacing="20">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label
+                                    FontAttributes="Bold"
+                                    Text="Link to existing event?"
+                                    VerticalOptions="Center" />
+                                <CheckBox
+                                    x:Name="CheckBox2"
+                                    Grid.Column="1"
+                                    Margin="0,0,-6,0"
+                                    IsChecked="True"
+                                    Color="Chartreuse" />
+                            </Grid>
+                            <BoxView BackgroundColor="WhiteSmoke" HeightRequest="1" />
+
+                            <comboBox:SfComboBox
+                                DropDownBorderColor="Chartreuse"
+                                HeightRequest="40"
+                                ShowClearButton="False"
+                                TextSize="13"
+                                Watermark="Select an event">
+                                <comboBox:SfComboBox.ComboBoxSource>
+                                    <generic:List x:TypeArguments="x:String">
+                                        <x:String>Event 1</x:String>
+                                        <x:String>Event 2</x:String>
+                                        <x:String>Event 3</x:String>
+                                        <x:String>Event 4</x:String>
+                                        <x:String>Event 5</x:String>
+                                    </generic:List>
+                                </comboBox:SfComboBox.ComboBoxSource>
+                            </comboBox:SfComboBox>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+
+        <Button
+            Grid.Row="1"
+            Margin="20,0,20,10"
+            BackgroundColor="Chartreuse"
+            Command="{Binding CreateNewDiaryCommand}"
+            HeightRequest="40"
+            Text="Create New Diary"
+            TextColor="White"
+            VerticalOptions="End" />
+    </Grid>
+</xamForms:ReactiveContentPage>

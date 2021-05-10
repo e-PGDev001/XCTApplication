@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<pages:PopupPage
+    x:Class="XCTApplication.Controls.ImageSelectionPageView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:animations="http://rotorgames.com"
+    xmlns:controls="clr-namespace:XCTApplication.Controls;assembly=XCTApplication"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8" />
+    </pages:PopupPage.Animation>
+    <Frame
+        Margin="20"
+        Padding="10"
+        CornerRadius="5"
+        HasShadow="False"
+        VerticalOptions="Center">
+        <ContentView>
+            <StackLayout Spacing="10">
+                <Image
+                    x:Name="ImageDes"
+                    HeightRequest="300"
+                    WidthRequest="300" />
+                <controls:CrossLabel
+                    Clicked="SetAsLandingImage"
+                    FontSize="12"
+                    HorizontalTextAlignment="Center"
+                    Text="Make as cover image" />
+                <ContentView BackgroundColor="Chartreuse" HeightRequest="0.5" />
+                <controls:CrossLabel
+                    Clicked="RemoveImage"
+                    FontSize="12"
+                    HorizontalTextAlignment="Center"
+                    Text="Delete this image" />
+                <ContentView BackgroundColor="Chartreuse" HeightRequest="0.5" />
+                <controls:CrossLabel
+                    Clicked="HideImageMenu"
+                    FontSize="12"
+                    HorizontalTextAlignment="Center"
+                    Text="Cancel" />
+            </StackLayout>
+        </ContentView>
+    </Frame>
+</pages:PopupPage>
