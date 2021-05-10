@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -14,6 +14,7 @@
     <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
     <PackageReference Include="Sharpnado.MaterialFrame" Version="1.1.4" />
+    <PackageReference Include="Xamarin.Forms.QuickTest" Version="5.0.0.1" />
   </ItemGroup>
 
   <ItemGroup>
