@@ -24,6 +24,32 @@ namespace XCTApplication.ViewModels
             set => this.RaiseAndSetIfChanged(ref _comments, value);
         }
 
+        private string _selectedEvent;
+
+        public string SelectedEvent
+        {
+            get => _selectedEvent;
+            set => this.RaiseAndSetIfChanged(ref _selectedEvent, value);
+        }
+
+
+        private string _taskCategory;
+
+        public string TaskCategory
+        {
+            get => _taskCategory;
+            set => this.RaiseAndSetIfChanged(ref _taskCategory, value);
+        }
+
+
+        private string _selectedArea;
+
+        public string SelectedArea
+        {
+            get => _selectedArea;
+            set => this.RaiseAndSetIfChanged(ref _selectedArea, value);
+        }
+
 
         #endregion
 
@@ -35,6 +61,8 @@ namespace XCTApplication.ViewModels
 
         private async Task CreateNewDiaryTask()
         {
+            var url = "https://reqres.in/";
+
         }
 
         #endregion

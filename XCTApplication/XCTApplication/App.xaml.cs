@@ -1,10 +1,8 @@
 ﻿using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 using XCTApplication.Views;
 
 namespace XCTApplication
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class App
     {
         public App()

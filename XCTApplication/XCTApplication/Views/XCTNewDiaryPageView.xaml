@@ -95,6 +95,7 @@
                             <comboBox:SfComboBox
                                 DropDownBorderColor="WhiteSmoke"
                                 HeightRequest="40"
+                                SelectedItem="{Binding SelectedArea}"
                                 ShowClearButton="False"
                                 TextSize="13"
                                 Watermark="Select Area">
@@ -111,6 +112,7 @@
                             <comboBox:SfComboBox
                                 DropDownBorderColor="WhiteSmoke"
                                 HeightRequest="40"
+                                SelectedItem="{Binding TaskCategory}"
                                 ShowClearButton="False"
                                 TextSize="13"
                                 Watermark="Task Category">
@@ -152,6 +154,7 @@
                             <comboBox:SfComboBox
                                 DropDownBorderColor="Chartreuse"
                                 HeightRequest="40"
+                                SelectedItem="{Binding SelectedEvent}"
                                 ShowClearButton="False"
                                 TextSize="13"
                                 Watermark="Select an event">
