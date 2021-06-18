@@ -11,10 +11,10 @@
     <PackageReference Include="AutoFixture" Version="4.17.0" />
     <PackageReference Include="FluentAssertions" Version="5.10.3" />
     <PackageReference Include="NUnit" Version="3.13.2" />
-    <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.0.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.10.0" />
     <PackageReference Include="Sharpnado.MaterialFrame" Version="1.1.4" />
-    <PackageReference Include="Xamarin.Forms.QuickTest" Version="5.0.0.1" />
+    <PackageReference Include="Xamarin.Forms.QuickTest" Version="5.0.0.5" />
   </ItemGroup>
 
   <ItemGroup>
