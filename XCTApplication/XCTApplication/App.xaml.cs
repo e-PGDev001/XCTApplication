@@ -10,7 +10,8 @@ namespace XCTApplication
             InitializeComponent();
             Sharpnado.MaterialFrame.Initializer.Initialize(loggerEnable: false, debugLogEnable: false);
             // we can claim license for free if our application have revenue <= 1M USD/year
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("xxx");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(
+                "NDQ1NDU5QDMxMzkyZTMxMmUzMEZadHNnWTJyTkxlVkVrMGZadVpFczBkL1FBK0hwODNlUnlicVltVUIveDg9");
             MainPage = new NavigationPage(new XCTMainPageView {Title = "Home Page"});
         }
 

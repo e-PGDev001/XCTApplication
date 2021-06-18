@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
@@ -144,6 +145,13 @@ namespace XCTApplication.Views
         {
             _compositeDisposable.Dispose();
             base.OnDisappearing();
+        }
+
+        public void InverstString(string inputString, int theNumber)
+        {
+            var indexN = inputString.IndexOf(theNumber.ToString(), StringComparison.Ordinal);
+            var childString = inputString.Substring(indexN + theNumber.ToString().Length);
+            var resultString = childString.Reverse();
         }
     }
 }
